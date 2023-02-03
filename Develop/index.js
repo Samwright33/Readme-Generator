@@ -44,7 +44,7 @@ const questions = [
     {
         type: 'input',
         message: 'Provide guidelines for user contributions.',
-        name: 'Contributing',
+        name: 'contributing',
     },
     {
         type: 'input',
@@ -53,8 +53,8 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What is your LinkedIn username?',
-        name: 'linkedInUser',
+        message: 'What is your email?',
+        name: 'email',
     },
     {
         type: 'input',
@@ -64,39 +64,22 @@ const questions = [
 ];
 
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// const writeToFile = data => {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile('./Develop/README.md', data, err => {
-//             if (err) {
-//                 reject (err);
-//                 return;
-//             }
-//             resolve({
-//                 ok: true
-//             })
-//         })
-//     })
-// }
+// function to write README file
 
 const writeToFile = data => {
-    fs.writeToFile('README.md', data, err => {
-        if (err) {
-            console.log(err);
-            return;
-        } else {
-            console.log("success")
-        }
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./README.md', data, err => {
+            if (err) {
+                reject (err);
+                return;
+            }
+            resolve({
+                ok: true
+            })
+        })
     })
-}; 
-
-
-// TODO: Create a function to initialize app
-const init = () => {
-    return inquirer.prompt(questions);
 }
+
 
 // Function call to initialize app
 init()
@@ -104,8 +87,8 @@ init()
     return generateMarkdown(userInput);
 })
 
-.then(readmeContent => {
-    return writeToFile(readmeContent);
+.then(Content => {
+    return writeToFile(Content);
 })
 
 .catch(err => {
