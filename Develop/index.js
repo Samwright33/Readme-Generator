@@ -44,7 +44,7 @@ const questions = [
     {
         type: 'input',
         message: 'Provide guidelines for user contributions.',
-        name: 'Contributing',
+        name: 'contributing',
     },
     {
         type: 'input',
