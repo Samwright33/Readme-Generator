@@ -81,11 +81,6 @@ const writeToFile = data => {
 }
 
 
-// function to initialize app
-const init = () => {
-    return inquirer.prompt(questions);
-}
-
 // Function call to initialize app
 init()
 .then(userInput => {
